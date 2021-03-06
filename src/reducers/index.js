@@ -1,8 +1,27 @@
-
+import { bindActionCreators } from "redux";
+import { START_FETCH, FETCH_SUCCESS, FETCH_FAILED, ADD_SMURF, ADD_ERROR} from "../actions/index"
 export const initialState = {
+    smurfs: [],
+    loading: false,
+    error: '',
 }
 
-const reducer = ()=>{
+const reducer = (state = initialState, action)=>{
+    switch (action.type) {
+        case START_FETCH:
+            return{...state, loading: true};
+        case FETCH_SUCCESS:
+            return{...state, loading: false, smurfs: action.payload};
+        case FETCH_FAILED:
+            return{...state, loading: false, error: "Request has failed!"};
+        case ADD_SMURF:
+            return{...state, smurfs: action.payload};
+        case ADD_ERROR:
+            return{...state, error: 'There was an error!'};
+        default:
+            console.log("Error: unkown action type in Index reducer")
+            return state;
+    }
 }
 
 export default reducer;
