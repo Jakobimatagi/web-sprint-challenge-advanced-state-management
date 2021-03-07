@@ -7,6 +7,7 @@ import thunk from 'redux-thunk';
 import reducer from './reducers/index'
 import "./index.css";
 import App from "./App";
+import { fetchSmurfs } from "./actions";
 
 const store = createStore(reducer, applyMiddleware(logger, thunk))
 
@@ -14,6 +15,8 @@ const { worker } = require('./mocks/browser');
 worker.start();
 
 const rootElement = document.getElementById("root");
+
+store.dispatch(fetchSmurfs);
 
 ReactDOM.render(
     <Provider store={store}>

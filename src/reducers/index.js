@@ -6,6 +6,8 @@ export const initialState = {
     error: '',
 }
 
+
+
 const reducer = (state = initialState, action)=>{
     switch (action.type) {
         case START_FETCH:

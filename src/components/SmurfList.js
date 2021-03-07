@@ -29,7 +29,6 @@ const mapStateToProps = (state) => {
         smurf: state.smurf
     }
 }
-
 const mapDispatchToProps = {fetchSmurfs};
 
 export default connect(mapStateToProps,mapDispatchToProps) (SmurfList);
