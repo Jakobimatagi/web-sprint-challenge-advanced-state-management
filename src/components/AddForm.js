@@ -52,6 +52,12 @@ const AddForm = (props) => {
     </section>);
 }
 
+const mapStateToProps = (state) => {
+    return {
+    addError: state.error,
+    }
+}
+
 export default AddForm;
 
 //Task List:

@@ -19,14 +19,19 @@ import {fetchSmurfs} from '../actions/index';
     }
 
     return(<div className="listContainer">
-        <Smurf smurf={testSmurf}/>
+        
+        {props.smurfs.map(res => {
+            return(
+                <Smurf name={res.position} position={res.position} nickname={res.nickname} description={res.description}/>
+            )
+        })}
     </div>);
 }
 const mapStateToProps = (state) => {
     return {
         loading: state.loading,
         error: state.error,
-        smurf: state.smurf
+        smurfs: state.smurfs
     }
 }
 const mapDispatchToProps = {fetchSmurfs};
